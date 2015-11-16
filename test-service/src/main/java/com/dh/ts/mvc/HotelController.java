@@ -1,4 +1,4 @@
-package com.cts.ts.mvc;
+package com.dh.ts.mvc;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cts.ts.domain.Hotel;
-import com.cts.ts.repo.HotelRepository;
+import com.dh.ts.domain.Hotel;
+import com.dh.ts.repo.HotelRepository;
 
 @RestController
 @RequestMapping(value = "/hotels")
@@ -27,9 +27,9 @@ public class HotelController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public com.cts.ts.dto.HotelDto getHotelById(@PathVariable Long id) {
+	public com.dh.ts.dto.HotelDto getHotelById(@PathVariable Long id) {
 		Hotel hotel =  hotelRepository.getOne(id);
-		com.cts.ts.dto.HotelDto hotelDto = new com.cts.ts.dto.HotelDto();
+		com.dh.ts.dto.HotelDto hotelDto = new com.dh.ts.dto.HotelDto();
 		hotelDto.setAddress(hotel.getAddress());
 		hotelDto.setName(hotel.getName());
 		return hotelDto;
@@ -38,7 +38,7 @@ public class HotelController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void addHotel(@RequestBody com.cts.ts.dto.HotelDto hotel) {
+	public void addHotel(@RequestBody com.dh.ts.dto.HotelDto hotel) {
 		Hotel h = new Hotel();
 		h.setAddress(hotel.getAddress());
 		h.setName(hotel.getName());
