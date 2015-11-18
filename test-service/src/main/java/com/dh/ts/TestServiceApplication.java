@@ -31,6 +31,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static com.google.common.collect.Lists.*;
 import static springfox.documentation.schema.AlternateTypeRules.*;
+import static springfox.documentation.builders.PathSelectors.*;
 @SpringBootApplication
 @EnableSwagger2
 public class TestServiceApplication {
@@ -44,7 +45,7 @@ public class TestServiceApplication {
       return new Docket(DocumentationType.SWAGGER_2)
           .select()
             .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
+            .paths(regex("/hotels/.*"))
             .build()
           .pathMapping("/")
           .directModelSubstitute(LocalDate.class,
