@@ -1,0 +1,18 @@
+{
+  
+  "builders": [
+    {
+      "type": "googlecompute",
+    
+      "project_id": "studious-vector-113603",
+      "source_image": "https://www.googleapis.com/compute/v1/projects/gke-node-images/global/images/container-vm-v20151103",
+      "zone": "us-central1-a",
+      "image_name": "testservice-123"
+    },
+    {
+      "type": "docker",
+      "image": "ubuntu:14.04",
+      "commit": "true" 
+    }
+  ]
+}
