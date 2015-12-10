@@ -1,6 +1,6 @@
 package com.dh.ts;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +48,8 @@ public class TestServiceApplication {
             .paths(regex("/hotels/.*"))
             .build()
           .pathMapping("/")
-          .directModelSubstitute(LocalDate.class,
-              String.class)
+          //.directModelSubstitute(LocalDate.class,
+           //   String.class)
           .genericModelSubstitutes(ResponseEntity.class)
           .alternateTypeRules(
               newRule(typeResolver.resolve(DeferredResult.class,
