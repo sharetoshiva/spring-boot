@@ -1,9 +1,9 @@
- RUN pwd
+
  FROM java:8
  	RUN pwd
 	VOLUME /tmp
 	RUN pwd
-	ADD target/test-service.jar  springboot.jar
+	ADD https://storage.googleapis.com/ic-jenkins-apps/test-service.jar  springboot.jar
 	RUN pwd
 	RUN bash -c 'touch springboot.jar'
 	ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","springboot.jar"]
